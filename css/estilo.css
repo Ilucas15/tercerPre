@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+    font-size: 25px;
+    background-color: dimgray;
+
+}
+
+.nombre {
+    font-weight: bold;
+}
+
+.logo {
+    transition: all 0.5s;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.nav-item {
+    transition: all 0.5;
+    padding: 15px;
+}
+
+.nav-item:hover {
+    color: aliceblue;
+    transform: scale(1.1);
+}
+
+.nav-link {
+    font-size: 30px;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../img/hero.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.tituloH {
+    color: aliceblue;
+    font-size: 100px;
+}
+
+.boton {
+    padding: 25px;
+    margin: 15px;
+    border-radius: 15px;
+    background-color: gray;
+    transition: all 0.5;
+
+}
+
+.boton:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+/* formulario */
+.registro-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 600px;
+    background-color: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px black;
+}
+
+.fondo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../img/formulario.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+.registro-form h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.control {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 15px;
+    background-color: #24303c;
+    border-radius: 4px;
+    border: 1px solid #1f53c5;
+    font-size: 18px;
+    color: whitesmoke;
+}
+
+.modalC {
+    margin-bottom: 16px;
+    color: wheat;
+}
+
+.modalC:hover {
+    color: #1f53c5;
+}
+
+.terminos {
+    color: black;
+}
+
+.registro-form .botonF {
+    width: 100%;
+    background-color: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.registro-form a {
+    color: white;
+    text-align: center;
+}
+
+/* javaScript */
+/* autos */
+body .contenedorPadreAutos {
+    background: radial-gradient(#E6DADA, #274046);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#contenedorAuto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.titulo {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+.precio {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+.caja {
+    border: 1px solid black;
+    background: linear-gradient(#232526, #414345);
+    width: 500px;
+    height: 500px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: tomato;
+}
+
+.imagenA {
+    width: 100%;
+}
+.botonC{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 150px;
+    padding: 15px;
+    margin-top: 15px;
+}
