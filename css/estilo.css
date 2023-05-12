@@ -46,6 +46,7 @@ header {
     font-size: 30px;
 }
 
+/* HERO */
 .hero {
     display: flex;
     justify-content: center;
@@ -79,12 +80,20 @@ header {
     color: white;
 }
 
+#catalogo{
+    text-align: center;
+    font-weight: bold;
+    font-size: 4rem;
+    margin: 10px;
+    padding: 15px;
+}
+
 /* formulario */
 .registro-form {
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 600px;
+    height: 70vh;
     background-color: #24303c;
     padding: 30px;
     margin: auto;
@@ -93,6 +102,7 @@ header {
     font-family: 'calibri';
     color: white;
     box-shadow: 7px 13px 37px black;
+    border-radius: 16px;
 }
 
 .fondo {
@@ -205,4 +215,8 @@ body .contenedorPadreAutos {
     margin-left: 150px;
     padding: 15px;
     margin-top: 15px;
+    transition: all 0.5s;
+}
+.botonC:hover{
+    transform: scale(1.1);
 }
