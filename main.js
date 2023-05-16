@@ -32,10 +32,12 @@ function mostrarAuto() {
     arrayAutos.forEach(auto => {
         const div1 = document.createElement("div");
         div1.className = "caja";
-        div1.innerHTML = `<p class="titulo">Nombre: ${auto.nombre}</p>
+        div1.innerHTML = `  <div class="deJs">
+                            <p class="titulo">Nombre: ${auto.nombre}</p>
                             <p class="precio">Precio: ${auto.precio}</p>
                             <img class="imagenA" src="${auto.url}" alt="${auto.nombre}">
-                            <button class="botonC" id="agregarCarrito${auto.id}"> Anadir al carrito </button>`
+                            <button class="botonC" id="agregarCarrito${auto.id}"> Anadir al carrito </button>
+                            </div>`
 
         contenedorAuto.appendChild(div1);
 
@@ -60,13 +62,6 @@ function agregarAlCarrito(id) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-// Mostrar el carrito de compras
-const verCarrito = document.getElementById("verCarrito");
-verCarrito.addEventListener("click", () => {
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    mostrarCarrito();
-});
-
 
 /******************************************* Formulario **********************************************/
 /* Molde para los clientes */
@@ -74,7 +69,7 @@ class Cliente {
     constructor(nombre, apellido, correo, contra) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.mail = correo;
+        this.correo = correo;
         this.contra = contra;
     }
 };
@@ -91,6 +86,7 @@ formulario.addEventListener("submit", (e) => {
     const apellido = document.getElementById("apellido");
     const correo = document.getElementById("correo");
     const contra = document.getElementById("contra");
+
     /* creo el objeto */
     const cliente = new Cliente(nombre.value, apellido.value, correo.value, contra.value);
     // Lo pusheamos
@@ -98,6 +94,20 @@ formulario.addEventListener("submit", (e) => {
 
     console.log(arrayDeClientes);
 
+    /* Para guardar en el local */
+    const clientePalLocal = {
+        nombre: cliente.nombre,
+        apellido: cliente.apellido,
+        correo: cliente.correo
+    };
+    console.log(clientePalLocal);
+    var clienteString = JSON.stringify(clientePalLocal);
+    localStorage.setItem("cliente", clienteString);
+
+
+
     //reseteamos formulario
     formulario.reset();
-})
+});
+
+
