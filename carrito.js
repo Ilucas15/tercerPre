@@ -105,7 +105,37 @@ function mostrarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+/* Finalizar compra */
+const finalizar = document.getElementById("finalizar");
 
+finalizar.addEventListener("click", () => {
+    if (carrito.length === 0) {
+        Swal.fire({
+            title: "No hay autos en el carrito",
+            icon: "error",
+            confirmButtonText: "Aceptar"
+        });
+        return; // Sale de la función y evita que se muestre el cuadro de diálogo de confirmación
+    }
+
+    Swal.fire({
+        title: "Finalizar compra?",
+        icon: "question",
+        confirmButtonText: "Aceptar",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Su compra fue exitosa. Gracias por elegirnos",
+                icon: "success",
+                confirmButtonText: "Aceptar"
+            });
+            eliminarTodoElCarrito();
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+        }
+    });
+});
 mostrarCarrito();
 
 function eliminarDelCarrito(id) {
@@ -130,24 +160,3 @@ function eliminarTodoElCarrito() {
     mostrarCarrito();
 }
 
-const finalizar = document.getElementById("finalizar");
-
-finalizar.addEventListener("click", () => {
-    Swal.fire({
-        title: "Finalizar compra?",
-        icon: "question",
-        confirmButtonText: "Aceptar",
-        showCancelButton: true,
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Su compra fue exitosa. Gracias por elegirnos",
-                icon: "succes",
-                confirmButtonText: "aceptar"
-            });
-            eliminarTodoElCarrito()
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-        }
-    })
-}) 
