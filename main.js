@@ -1,5 +1,12 @@
 /******************************************* Auto + Carrito **********************************************/
-
+setTimeout(() => {
+    Swal.fire({
+        title: "Bienvenido a AutoStar, elegi el auto de tus suenos al mejor precio",
+        imageUrl:'img/b.png',
+        confirmButtonText: "Aceptar",
+        
+    })
+}, 3000)
 /* Creo el "molde" para Auto */
 class Auto {
     constructor(id, nombre, precio, url) {
@@ -45,6 +52,16 @@ function mostrarAuto() {
         const agregarCarrito = document.getElementById(`agregarCarrito${auto.id}`);
         agregarCarrito.addEventListener("click", () => {
             agregarAlCarrito(auto.id);
+            Toastify({
+                text: "Agregado al carrito",
+                duration: 3000,
+                gravity: "top",
+                position: "right",
+                style: {
+                    background: "linear-gradient(to right, #E6DADA, #274046)",
+                },
+                destination: "carrito.html"
+            }).showToast();
         })
     });
 }
@@ -61,7 +78,34 @@ function agregarAlCarrito(id) {
     }
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
+/* Terminos */
+const terminos = document.getElementById("terminos")
 
+terminos.addEventListener("click", () => {
+    (async () => {
+
+        const { value: accept } = await Swal.fire({
+            title: 'Terminos y condiciones',
+            input: 'checkbox',
+            inputValue: 1,
+            inputPlaceholder:
+                'Estoy de acuerdo con los terminos y condiciones',
+            confirmButtonText:
+                'Continue <i class="fa fa-arrow-right"></i>',
+            inputValidator: (result) => {
+                return !result && 'Para continuar necesita aceptar las condiciones'
+            }
+        })
+
+        if (accept) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Aceptado :)'
+            })
+        }
+
+    })()
+});
 
 /******************************************* Formulario **********************************************/
 /* Molde para los clientes */

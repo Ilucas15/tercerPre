@@ -38,7 +38,22 @@ function mostrarCarrito() {
         // Eliminar auto del carro
         const eliminar = document.getElementById(`eliminar${auto.id}`)
         eliminar.addEventListener("click", () => {
-            eliminarDelCarrito(auto.id);
+            Swal.fire({
+                title: "Seguro que desea eliminar el Auto?",
+                icon: "warning",
+                confirmButtonText: "Aceptar",
+                showCancelButton: true,
+                cancelButtonText: "Cancelar"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    eliminarDelCarrito(auto.id);
+                    Swal.fire({
+                        title: "producto eliminado",
+                        icon: "succes",
+                        confirmButtonText: "aceptar"
+                    });
+                }
+            })
         });
 
         // Aumentar cantidad
@@ -66,6 +81,23 @@ function mostrarCarrito() {
                 auto.cantidad--;
                 mostrarCarrito();
                 localStorage.setItem("carrito", JSON.stringify(carrito));
+            } else {
+                Swal.fire({
+                    title: "Seguro que desea eliminar el Auto?",
+                    icon: "warning",
+                    confirmButtonText: "Aceptar",
+                    showCancelButton: true,
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        eliminarDelCarrito(auto.id);
+                        Swal.fire({
+                            title: "producto eliminado",
+                            icon: "succes",
+                            confirmButtonText: "aceptar"
+                        });
+                    }
+                })
             }
         }
     })
@@ -98,4 +130,24 @@ function eliminarTodoElCarrito() {
     mostrarCarrito();
 }
 
+const finalizar = document.getElementById("finalizar");
 
+finalizar.addEventListener("click", () => {
+    Swal.fire({
+        title: "Finalizar compra?",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+        showCancelButton: true,
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Gracias por elegirnos",
+                icon: "succes",
+                confirmButtonText: "aceptar"
+            });
+            eliminarTodoElCarrito()
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+        }
+    })
+}) 
