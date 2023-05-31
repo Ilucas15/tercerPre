@@ -92,7 +92,7 @@ function mostrarCarrito() {
                     if (result.isConfirmed) {
                         eliminarDelCarrito(auto.id);
                         Swal.fire({
-                            title: "producto eliminado",
+                            title: "Auto eliminado",
                             icon: "succes",
                             confirmButtonText: "aceptar"
                         });
@@ -135,14 +135,14 @@ const finalizar = document.getElementById("finalizar");
 finalizar.addEventListener("click", () => {
     Swal.fire({
         title: "Finalizar compra?",
-        icon: "warning",
+        icon: "question",
         confirmButtonText: "Aceptar",
         showCancelButton: true,
         cancelButtonText: "Cancelar"
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: "Gracias por elegirnos",
+                title: "Su compra fue exitosa. Gracias por elegirnos",
                 icon: "succes",
                 confirmButtonText: "aceptar"
             });

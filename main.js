@@ -6,7 +6,7 @@ setTimeout(() => {
         confirmButtonText: "Aceptar",
         
     })
-}, 3000)
+}, 1500)
 /* Creo el "molde" para Auto */
 class Auto {
     constructor(id, nombre, precio, url) {
