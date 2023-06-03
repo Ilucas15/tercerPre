@@ -13,9 +13,28 @@ function totalCompraAuto() {
     let compraTotal = 0;
     carrito.forEach(auto => {
         compraTotal += auto.precio * auto.cantidad;
-    })
-    totalCompra.innerHTML = `Total: $${compraTotal}`
+    });
+    totalCompra.innerHTML = `<p>Total compra en pesos: $${compraTotal}</p>`;
 }
+
+const apiDolar = "https://criptoya.com/api/dolar";
+const dolar = document.getElementById("dolar");
+
+setInterval(() => {
+    fetch(apiDolar)
+        .then(respuesta => respuesta.json())
+        .then(({ blue }) => {
+            const compraTotal = parseFloat(totalCompra.innerText.match(/\d+/)[0]); // Obtener el valor numérico del total de compra en pesos
+            const totalDolares = compraTotal / blue;
+            dolar.innerHTML = `<p>Total compra en dólares: $USD ${totalDolares.toFixed(2)}</p>`;
+        })
+        .catch(error => console.log(error));
+}, 1); // Cambiado el intervalo a 1 segundo (1000 ms) para evitar hacer demasiadas solicitudes a la API en poco tiempo
+
+
+
+
+
 //Para mostrar los Elementos en el carrito
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 function mostrarCarrito() {

@@ -238,17 +238,26 @@ header {
 .modal-body {
     color: white;
 }
+
 /* Vaciar compra */
-#carritoVacio{
+#carritoVacio {
     margin: 15px;
     font-size: 20px;
     border: 1px solid black;
 }
-#totalCompra{
+
+#totalCompra {
     margin-top: 2px;
     font-size: 20px;
     border: 1px solid black;
 }
+
+#dolar {
+    margin-top: 2px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
 /* Boton finalizar compra */
 .botonFinalizar {
     display: flex;

@@ -2,9 +2,9 @@
 setTimeout(() => {
     Swal.fire({
         title: "Bienvenido a AutoStar, elegi el auto de tus suenos al mejor precio",
-        imageUrl:'img/b.png',
+        imageUrl: 'img/b.png',
         confirmButtonText: "Aceptar",
-        
+
     })
 }, 1500)
 /* Creo el "molde" para Auto */
